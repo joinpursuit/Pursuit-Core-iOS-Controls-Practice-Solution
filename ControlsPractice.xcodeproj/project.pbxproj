@@ -13,6 +13,7 @@
 		CD61576E2412AB1B00BCC3B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD61576C2412AB1B00BCC3B9 /* Main.storyboard */; };
 		CD6157702412AB2500BCC3B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD61576F2412AB2500BCC3B9 /* Assets.xcassets */; };
 		CD6157732412AB2500BCC3B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6157712412AB2500BCC3B9 /* LaunchScreen.storyboard */; };
+		CD61577B2412B16300BCC3B9 /* BitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD61577A2412B16300BCC3B9 /* BitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CD61576F2412AB2500BCC3B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD6157722412AB2500BCC3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD6157742412AB2500BCC3B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD61577A2412B16300BCC3B9 /* BitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				CD6157662412AB1A00BCC3B9 /* AppDelegate.swift */,
 				CD6157682412AB1A00BCC3B9 /* SceneDelegate.swift */,
 				CD61576A2412AB1A00BCC3B9 /* ViewController.swift */,
+				CD61577A2412B16300BCC3B9 /* BitView.swift */,
 				CD61576C2412AB1B00BCC3B9 /* Main.storyboard */,
 				CD61576F2412AB2500BCC3B9 /* Assets.xcassets */,
 				CD6157712412AB2500BCC3B9 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				CD61576B2412AB1A00BCC3B9 /* ViewController.swift in Sources */,
 				CD6157672412AB1A00BCC3B9 /* AppDelegate.swift in Sources */,
+				CD61577B2412B16300BCC3B9 /* BitView.swift in Sources */,
 				CD6157692412AB1A00BCC3B9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
