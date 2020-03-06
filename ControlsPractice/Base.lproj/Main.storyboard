@@ -81,7 +81,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="binaryTextField" destination="saC-yE-LG1" id="uEL-cj-3TN"/>
                         <outlet property="bitViewsStackView" destination="83O-jJ-YZ8" id="Qbm-3c-vUa"/>
+                        <outlet property="decimalTextField" destination="rxV-Ph-qnS" id="Nz6-xV-12h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

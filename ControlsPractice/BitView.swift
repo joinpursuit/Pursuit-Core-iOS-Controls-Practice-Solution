@@ -1,9 +1,29 @@
 import UIKit
 
+protocol BitViewDelegate {
+    func bitDidChangeValue(at bit: Int, to newValue: Bool)
+}
+
 class BitView: UIView {
     
-    func configure(forBit bit: Int) {
+    var bit: Int!
+    var delegate: BitViewDelegate?
+    
+    func configure(forBit bit: Int, withDelegate delegate: BitViewDelegate) -> Void {
+        self.bit = bit
+        self.delegate = delegate
         bitDescriptionLabel.text = "\(Int(pow(2, Double(bit))))"
+    }
+    
+    func setBit(to bool: Bool) {
+        switch bool {
+        case true:
+            bitSwitch.isOn = true
+            bitValueLabel.text = "1"
+        case false:
+            bitSwitch.isOn = false
+            bitValueLabel.text = "0"
+        }
     }
     
     private lazy var stackView: UIStackView = {
@@ -17,6 +37,7 @@ class BitView: UIView {
     private lazy var bitSwitch: UISwitch = {
         let s = UISwitch()
         s.isOn = false
+        s.addTarget(self, action: #selector(switchValueChanged(sender:)), for: .valueChanged)
         return s
     }()
     
@@ -40,6 +61,10 @@ class BitView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupView()
+    }
+    
+    @objc func switchValueChanged(sender: UISwitch) {
+        delegate?.bitDidChangeValue(at: bit, to: sender.isOn)
     }
     
     private func setupView() {
