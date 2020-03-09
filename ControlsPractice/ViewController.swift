@@ -3,7 +3,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var decimalTextField: UITextField!
-    @IBOutlet var binaryTextField: UITextField!
+    @IBOutlet var binaryTextLabel: UILabel!
     @IBOutlet var bitViewsStackView: UIStackView!
     
     var bitViews = [BitView]()
@@ -12,14 +12,13 @@ class ViewController: UIViewController {
         didSet {
             updateBitViews()
             decimalTextField.text = "\(currentValue)"
-            binaryTextField.text = currentValue.paddedBinaryRepresentation
+            binaryTextLabel.text = currentValue.paddedBinaryRepresentation
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         decimalTextField.delegate = self
-        binaryTextField.delegate = self
         loadBitViews()
         currentValue = 1
     }
@@ -42,7 +41,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: BitViewDelegate {
-    func bitDidChangeValue(at bit: Int, to newValue: Bool) {
+    func bitDidChangeValue(at bit: Int) {
         let flippedBitVal = UInt8(NSDecimalNumber(decimal: pow(2, bit)).intValue)
         currentValue ^= flippedBitVal
     }
@@ -63,9 +62,6 @@ extension ViewController: UITextFieldDelegate {
             case decimalTextField:
                 guard let val = UInt8(updatedText, radix: 10), textIsValidDecimal(updatedText) else { return false }
                 newValue = val
-            case binaryTextField:
-                guard let val = UInt8(text, radix: 2), textIsValidBinary(updatedText) else { return false }
-                newValue = val
             default: fatalError("Unknown text field")
             }
             currentValue = newValue
@@ -75,10 +71,6 @@ extension ViewController: UITextFieldDelegate {
     
     func textIsValidDecimal(_ str: String) -> Bool {
         guard let val = Int(str) else { return false }
-        return val > -1 && val < 256
-    }
-    func textIsValidBinary(_ str: String) -> Bool {
-        guard let val = Int(str, radix: 2) else { return false }
         return val > -1 && val < 256
     }
 }

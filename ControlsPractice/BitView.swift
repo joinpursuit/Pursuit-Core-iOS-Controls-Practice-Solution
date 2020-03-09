@@ -1,7 +1,7 @@
 import UIKit
 
 protocol BitViewDelegate {
-    func bitDidChangeValue(at bit: Int, to newValue: Bool)
+    func bitDidChangeValue(at bit: Int)
 }
 
 class BitView: UIView {
@@ -43,13 +43,11 @@ class BitView: UIView {
     
     private lazy var bitDescriptionLabel: UILabel = {
         let lab = UILabel()
-        lab.text = "0"
         return lab
     }()
     
     private lazy var bitValueLabel: UILabel = {
         let lab = UILabel()
-        lab.text = "0"
         return lab
     }()
     
@@ -64,7 +62,7 @@ class BitView: UIView {
     }
     
     @objc func switchValueChanged(sender: UISwitch) {
-        delegate?.bitDidChangeValue(at: bit, to: sender.isOn)
+        delegate?.bitDidChangeValue(at: bit)
     }
     
     private func setupView() {
